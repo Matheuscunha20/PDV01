@@ -1,0 +1,23 @@
+package me.dio.api.service;
+
+import me.dio.api.model.Transacao;
+import me.dio.api.repository.TransacaoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class TransacaoService {
+
+    @Autowired
+    private TransacaoRepository transacaoRepository;
+
+    public Transacao saveTransacao(Transacao transacao) {
+        return transacaoRepository.save(transacao);
+    }
+
+    public List<Transacao> getAllTransacoes() {
+        return transacaoRepository.findAll();
+    }
+}
